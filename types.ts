@@ -9,6 +9,15 @@ export interface Song {
     image_path: string;
 };
 
+export interface Game {
+    id: string;
+    user_id: string;
+    author: string;
+    title: string;
+    song_path: string;
+    image_path: string;
+};
+
 export interface UserDetails {
     id: string;
     first_name: string;

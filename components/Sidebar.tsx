@@ -4,6 +4,9 @@ import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 import { HiHome } from 'react-icons/hi';
 import { BiSearch } from 'react-icons/bi';
+import { IoLogoGameControllerB } from 'react-icons/io';
+import { MdOutlineGames } from 'react-icons/md';
+import { RiGameFill } from 'react-icons/ri';
 
 import { Song } from '@/types';
 import usePlayer from '@/hooks/usePlayer';
@@ -12,6 +15,7 @@ import Box from './Box';
 import SidebarItem from './SidebarItem';
 import Library from './Library';
 import { twMerge } from 'tailwind-merge';
+import GameLibrary from './GameLibrary';
 
 
 interface SidebarProps {
@@ -30,7 +34,11 @@ const Sidebar: React.FC<SidebarProps> = ({
         {
             icon: HiHome,
             label: 'Home',
-            active: pathname !== '/search',
+            active: 
+            pathname !== '/search' && 
+            pathname !== '/game' &&
+            pathname !== '/games',
+            // pathname !== '/leaderboard',
             href: '/',
         },
         {
@@ -38,8 +46,25 @@ const Sidebar: React.FC<SidebarProps> = ({
             label: 'Search',
             active: pathname === '/search',
             href: '/search'
-        }
-        
+        },
+        {
+            icon: MdOutlineGames,
+            label: 'Game',
+            active: pathname === '/game',
+            href: '/game'
+        },
+        {
+            icon: IoLogoGameControllerB,
+            label: 'Games',
+            active: pathname === '/games',
+            href: '/games'
+        },
+        // {
+        //     icon: RiGameFill,
+        //     label: 'Leaderboard',
+        //     active: pathname === '/leaderboard',
+        //     href: '/leaderboard'
+        // }
     ], [pathname])
     
     return (
@@ -75,6 +100,9 @@ const Sidebar: React.FC<SidebarProps> = ({
                             />
                         ))}
                     </div>
+                </Box>
+                <Box className='overflow-y-auto h-full'>
+                    <GameLibrary songs={songs}/>
                 </Box>
                 <Box className='overflow-y-auto h-full'>
                     <Library songs={songs}/>

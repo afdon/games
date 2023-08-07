@@ -1,8 +1,7 @@
 import Sidebar from '@/components/Sidebar'
 import './globals.css'
 import { Space_Grotesk } from 'next/font/google'
-// import { Figtree } from 'next/font/google'
-// import { Inter } from 'next/font/google'
+// import { Inter, Figtree } from 'next/font/google'
 import SupabaseProvider from '@/providers/SupabaseProvider'
 import UserProvider from '@/providers/UserProvider'
 import ModalProvider from '@/providers/ModalProvider'
@@ -15,9 +14,11 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 // const figtree = Figtree({ subsets: ['latin'] })
 // const inter = Inter({ subsets: ['latin'] })
 
+const font = spaceGrotesk
+
 export const metadata = {
-  title: 'Music',
-  description: 'Listen',
+  title: 'Minesweeper',
+  description: 'Play',
 };
 
 export const revalidate = 0 // don't cache
@@ -27,12 +28,13 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // const userGames = await getGamesByUserId();
   const userSongs = await getSongsByUserId();
   const products = await getActiveProductsWithPrices();
 
   return (
     <html lang="en">
-      <body className={spaceGrotesk.className}>
+      <body className={font.className}>
         <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>

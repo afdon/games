@@ -2,8 +2,6 @@
 
 import { IoLogoGameControllerB } from 'react-icons/io';
 import { TbPlaylist } from 'react-icons/tb';
-import { RiGameFill } from 'react-icons/ri';
-import { MdOutlineGames } from 'react-icons/md';
 
 import { AiOutlinePlus } from 'react-icons/ai';
 
@@ -56,13 +54,13 @@ const Library: React.FC<LibraryProps> = ({
                 items-center
                 gap-x-2
                 ">
-                    <MdOutlineGames className="text-neutral-400" size={26} />
+                    <IoLogoGameControllerB className="text-neutral-400" size={26} />
                     <p className='
                     text-neutral-400
                     font-medium
                     text-md
                     '>
-                        Your Library
+                        Your Games
                     </p>
                 </div>
                 <AiOutlinePlus

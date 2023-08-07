@@ -1,13 +1,16 @@
-import Button from "@/components/Button";
+// import Button from "@/components/Button";
+import { Button } from "@/components/ui/button"
 
 
 const ControlPanel = () => {
     return (
        <>
        <div className= "">
-            <button>
-                Settings
-            </button>
+
+        {/* <Button>
+            Hello!
+        </Button> */}
+            
        </div>
        </>
     );

@@ -14,7 +14,7 @@ export interface Game {
     user_id: string;
     author: string;
     title: string;
-    song_path: string;
+    game_path: string;
     image_path: string;
 };
 

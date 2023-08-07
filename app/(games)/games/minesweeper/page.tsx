@@ -31,9 +31,9 @@ export default async function Home() {
           text-white
           text-3xl
           font-semibold
-          mt-[-60px]
           ">
-            {game}
+            {/* {game} */}
+            {/* Latest Games */}
           </h1>
           <div
             className="

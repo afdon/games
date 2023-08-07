@@ -124,9 +124,10 @@ const Header: React.FC<HeaderProps> = ({
                     </button>
                 </div>
                 <div>
-                    <h1 className="text-white text-xl font-semibold">
+                    {/* <h1 
+                    className="text-white text-4xl font-semibold">
                         Games
-                    </h1>
+                    </h1> */}
                 </div>
                 <div className="
                 flex

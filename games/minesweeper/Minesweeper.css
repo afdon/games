@@ -1,0 +1,51 @@
+
+body {
+    height: 100%;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+  }
+
+  /* h1 {
+    padding: 20px;
+    margin: 20px;
+  } */
+
+  .board {
+    max-width: 100vmin;
+  }
+
+  .cell {
+    font-size: larger;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    user-select: none;
+  }
+  
+  .notrevealed {
+    background: gray;
+    cursor: pointer;
+  }
+  
+  .notrevealed:hover {
+    background: blue;
+    background: var(--clr)
+  }
+  
+  .revealed {
+    --clr: darkgreen;
+    background: green;
+    overflow: hidden;
+  }
+  
+  .revealed:hover {
+    background: darkred;
+  }
+  
+  .flagged {
+    --clr: orangered;
+    cursor: not-allowed;
+  }

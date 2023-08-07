@@ -37,8 +37,8 @@ const Sidebar: React.FC<SidebarProps> = ({
             active: 
             pathname !== '/search' && 
             pathname !== '/game' &&
-            pathname !== '/games',
-            // pathname !== '/leaderboard',
+            pathname !== '/games' &&
+            pathname !== '/leaderboard',
             href: '/',
         },
         {
@@ -59,12 +59,12 @@ const Sidebar: React.FC<SidebarProps> = ({
             active: pathname === '/games',
             href: '/games'
         },
-        // {
-        //     icon: RiGameFill,
-        //     label: 'Leaderboard',
-        //     active: pathname === '/leaderboard',
-        //     href: '/leaderboard'
-        // }
+        {
+            icon: RiGameFill,
+            label: 'Leaderboard',
+            active: pathname === '/leaderboard',
+            href: '/leaderboard'
+        }
     ], [pathname])
     
     return (

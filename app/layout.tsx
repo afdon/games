@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
 const font = spaceGrotesk
 
 export const metadata = {
-  title: 'Minesweeper',
+  title: 'Games',
   description: 'Play',
 };
 

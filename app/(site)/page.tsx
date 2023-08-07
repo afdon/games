@@ -9,6 +9,8 @@ export const revalidate = 0;
 export default async function Home() {
   const songs = await getSongs();
 
+  const game = "Minesweeper"
+
   // throw new Error('Test!')
 
   return (
@@ -19,15 +21,17 @@ export default async function Home() {
     w-full
     overflow-hidden
     overflow-y-auto
+    p-4
     '>
       <Header>
-        <div className="mb-2">
+        <div className="mb-2 mt-4 p-2">
           <h1 className="
           text-white
           text-3xl
           font-semibold
           ">
-            Games
+            {/* {game} */}
+            {/* Latest Games */}
           </h1>
           <div
             className="
@@ -41,7 +45,7 @@ export default async function Home() {
           "
           >
             {/* <ListItem
-              image="/images/liked.png"
+              image="/images/gamewave.png"
               name="Latest"
               href="latest"
             />
@@ -56,7 +60,7 @@ export default async function Home() {
       <div className="mt-2 mb-7 px-6">
         <div className="flex justify-between items-center">
           <h1 className="text-white text-2xl font-semibold">
-            Minesweeper
+            {/* Play the Game... */}
           </h1>
         </div>
         {/* <div>

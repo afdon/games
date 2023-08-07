@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { twMerge } from "tailwind-merge";
-import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
+import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
@@ -76,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({
                     hover:opacity-75
                     transition
                     ">
-                        <RxCaretLeft className="text-white" size={35} />
+                        <BsFillArrowLeftCircleFill className="text-white" size={35} />
                     </button>
                     <button
                         onClick={() => router.forward()}
@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({
                     hover:opacity-75
                     transition
                     ">
-                        <RxCaretRight className="text-white" size={35} />
+                        <BsFillArrowRightCircleFill className="text-white" size={35} />
                     </button>
                 </div>
                 <div className="
@@ -123,6 +123,11 @@ const Header: React.FC<HeaderProps> = ({
                         <BiSearch className="text-black" size={20} />
                     </button>
                 </div>
+                <div>
+                    <h1 className="text-white text-xl font-semibold">
+                        Games
+                    </h1>
+                </div>
                 <div className="
                 flex
                 justify-between
@@ -132,45 +137,45 @@ const Header: React.FC<HeaderProps> = ({
                     {user ? (
                         <div className="flex gap-x-4 items-center">
                             <Button
-                            onClick={handleLogout}
-                            className="bg-white px-6 py-2"
+                                onClick={handleLogout}
+                                className="bg-white px-6 py-2"
                             >
                                 Logout
                             </Button>
                             <Button
-                            onClick={() => router.push('/account')}
-                            className="bg-white"
+                                onClick={() => router.push('/account')}
+                                className="bg-white"
                             >
                                 <FaUserAlt />
                             </Button>
                         </div>
                     ) : (
-                    <>
-                        <div>
-                            <Button
-                                onClick={authModal.onOpen}
-                                className="
+                        <>
+                            <div>
+                                <Button
+                                    onClick={authModal.onOpen}
+                                    className="
                             bg-transparent
                             text-neutral-300
                             font-medium
                             "
-                            >
-                                Sign up
-                            </Button>
-                        </div>
-                        <div>
-                            <Button
-                                onClick={authModal.onOpen}
-                                className="
+                                >
+                                    Sign up
+                                </Button>
+                            </div>
+                            <div>
+                                <Button
+                                    onClick={authModal.onOpen}
+                                    className="
                             bg-white
                             px-6
                             py-2
                             "
-                            >
-                                Log in
-                            </Button>
-                        </div>
-                    </>
+                                >
+                                    Log in
+                                </Button>
+                            </div>
+                        </>
                     )}
                 </div>
             </div>

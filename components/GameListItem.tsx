@@ -3,14 +3,15 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FaPlay } from "react-icons/fa";
+import { RiGamepadFill } from "react-icons/ri";
 
-interface ListItemProps {
+interface GameListItemProps {
     image: string;
     name: string;
     href: string;
 };
 
-const ListItem: React.FC<ListItemProps> = ({
+const ListItem: React.FC<GameListItemProps> = ({
     image,
     name,
     href
@@ -62,14 +63,16 @@ const ListItem: React.FC<ListItemProps> = ({
             flex
             items-center
             justify-center
-            bg-indigo-500
             p-4
             drop-shadow-md
             right-5
-            group-hover:opacity-100
+            group-hover:opacity-100 
             hover:scale-110            
             ">
-                <FaPlay className="text-black" />
+                <RiGamepadFill 
+                    className="text-indigo-500 hover:scale-400"
+                    size={35}
+                />
             </div>
         </button>
     );

@@ -1,6 +1,6 @@
 import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header";
-import ListItem from "@/components/ListItem";
+import GameListItem from "@/components/GameListItem";
 
 //don't cache this page
 export const revalidate = 0;
@@ -18,9 +18,10 @@ export default async function Home() {
     w-full
     overflow-hidden
     overflow-y-auto
+    p-4
     '>
       <Header>
-        <div className="mb-2">
+        <div className="mb-2 mt-4 pt-4">
           <h1 className="
           text-white
           text-3xl
@@ -36,19 +37,19 @@ export default async function Home() {
           xl:grid-cols-3
           2xl:grid-cols-4
           gap-3
-          mt-4
+          mt-8
           "
           >
-            {/* <ListItem
-              image="/images/liked.png"
+            <GameListItem
+              image="/images/gamewave.png"
               name="Latest"
               href="latest"
             />
-            <ListItem
-              image="/images/liked.png"
+            <GameListItem
+              image="/images/playing-skateboard.jpg"
               name="Liked"
               href="liked"
-            /> */}
+            />
           </div>
         </div>
       </Header>

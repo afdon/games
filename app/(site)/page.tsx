@@ -13,7 +13,7 @@ export default async function Home() {
   const songs = await getSongs();
   const games = await getGames();
 
-  const game = "Minesweeper"
+  const heading = "Goodest Games"
 
   return (
 
@@ -39,7 +39,7 @@ export default async function Home() {
           hidden
           lg:block
           ">
-            {game}
+            {heading}
           </h1>
 
 

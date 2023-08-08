@@ -127,7 +127,7 @@ export default function Game() {
 
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline"><div>Mines Left: {minesLeft}</div></Button>
+          <Button variant="outline"><div>Mines Left to Flag: {minesLeft}</div></Button>
         </PopoverTrigger>
         <PopoverContent className="w-100">
           <Card className="w-[350px]">

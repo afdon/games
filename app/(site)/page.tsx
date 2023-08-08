@@ -2,26 +2,21 @@ import getSongs from "@/actions/getSongs";
 import getGames from "@/actions/getGames";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
-import GameListItem from "@/components/ListItem";
+import GameListItem from "@/components/GameListItem";
 // import PageContent from "./components/PageContent";
 import Minesweeper from "@/games/minesweeper/Minesweeper";
-import Button from "@/components/Button"
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 //don't cache this page
 export const revalidate = 0;
 
 export default async function Home() {
+  
   const songs = await getSongs();
   const games = await getGames();
 
-  let router = useRouter();
-
-  const heading = "Goodest Games"
+  const game = "Minesweeper"
 
   return (
-
     <div className='
     bg-neutral-900
     rounded-lg
@@ -31,8 +26,6 @@ export default async function Home() {
     overflow-y-auto
     p-4
     '>
-
-
       <Header>
         <div className="mb-2 mt-4 p-2">
           <h1 className="
@@ -44,19 +37,9 @@ export default async function Home() {
           hidden
           lg:block
           ">
-            {heading}
+            {game}
           </h1>
-
-          <div>
-{/* 
-          <Button>
-            <Link href="/games">Play Minesweeper</Link>
-            </Button> */}
-
-          </div>
-
-
-          {/* <div
+          <div
             className="
           grid
           grid-cols-1
@@ -67,7 +50,7 @@ export default async function Home() {
           mt-4
           "
           >
-            <ListItem
+            {/* <ListItem
               image="/images/gamewave.png"
               name="Latest"
               href="latest"
@@ -76,30 +59,25 @@ export default async function Home() {
               image="/images/liked.png"
               name="Liked"
               href="liked"
-            />
-          </div> */}
-
+            /> */}
+          </div>
         </div>
       </Header>
-
-
-      {/* <div className="mt-2 mb-7 px-6">
+      <div className="mt-2 mb-7 px-6">
         <div className="flex justify-between items-center">
           <h1 className="text-white text-2xl font-semibold">
-            Minesweeper
+            {/* Minesweeper */}
           </h1>
         </div>
-        <div>
+        {/* <div>
           <PageContent game={games} />
-        </div>
+        </div> */}
         <div>
           <Minesweeper />
         </div>
         <div>
         </div>
-      </div> */}
-
+      </div>
     </div>
   );
 }
-

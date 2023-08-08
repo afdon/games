@@ -9,7 +9,7 @@ import { Song } from "@/types";
 import Image from "next/image";
 
 interface MediaItemProps {
-    data: Game;
+    data: Song;
     onClick?: (id: string) => void;
 }
 

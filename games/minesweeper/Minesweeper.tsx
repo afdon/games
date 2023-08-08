@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import {
-  SETTINGS,
+  settings,
   changeSettings,
   reinit,
   findConnectedCellsToReveal,

@@ -3,27 +3,28 @@
   let mineIndices = [];
 
   
-export let SETTINGS = {
+  // let settings = {
+  //   numMines: m,
+  //   rows: r,
+  //   cols: c,
+  // }
+
+export let settings = {
     numMines: 30,
     numRows: 16,
     numCols: 30,
   };
   
   // export const cellSize = `calc(100vmin / ${Math.max(SETTINGS.numRows, SETTINGS.numCols)})`;
-  export const cellSize = `${90 / (Math.max(SETTINGS.numRows, SETTINGS.numCols))})vmin`;
+  export const cellSize = `${90 / (Math.max(settings.rows, settings.cols))})vmin`;
 
 
   export const changeSettings = (m, r, c) => {
     
-    let settings = {
-      numMines: m,
-      numRows: r,
-      numCols: c,
-    }
 
-    SETTINGS = settings
+    settings = settings
 
-    return SETTINGS;
+    return settings;
   };
 
   export const reinit = (m, r, c) => {
@@ -81,7 +82,7 @@ export let SETTINGS = {
       let mineIdx = mineIndices[i];
       board[mineIdx] = 10;
   
-      incrementNeighbors(mineIdx, SETTINGS.numRows, SETTINGS.numCols);
+      incrementNeighbors(mineIdx, settings.rows, settings.cols);
     }
     return board;
   };
@@ -151,12 +152,12 @@ export let SETTINGS = {
   
       let counter = 0;
   
-      while (queue.length > 0 && counter < SETTINGS.numRows * SETTINGS.numCols) {
+      while (queue.length > 0 && counter < settings.rows * settings.cols) {
           counter++;
           let curCell = queue.shift();
   
           if (board[curCell] === 0) {
-              let neighbors = getNeighborsIdx(curCell, SETTINGS.numRows, SETTINGS.numCols).slice(0, 4);
+              let neighbors = getNeighborsIdx(curCell, settings.rows, settings.cols).slice(0, 4);
               neighbors.forEach(n => {
                   cellsToReveal.push(n);
   

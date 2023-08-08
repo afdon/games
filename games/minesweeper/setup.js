@@ -4,7 +4,7 @@
 
   
 export let SETTINGS = {
-    numMines: 25,
+    numMines: 30,
     numRows: 16,
     numCols: 30,
   };

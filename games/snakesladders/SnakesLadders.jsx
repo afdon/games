@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import "./SnakesLadders.css";
 
@@ -10,11 +9,13 @@ import {
   initialize,
 } from "./setup.js";
 
+/////
+
 let board = initialize();
 
 let display = getDisplayValues(board);
 
-export default function Game() {
+export default SnakesLadders = () => {
   const [revealedCells, setRevealedCells] = useState(
     new Array(SETTINGS.numRows * SETTINGS.numCols).fill(false)
   );
@@ -128,7 +129,7 @@ export default function Game() {
   );
 }
 
-const GameCell = (props) => {
+export const GameCell = (props) => {
 
   let cn = "cell";
 

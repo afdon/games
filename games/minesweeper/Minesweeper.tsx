@@ -141,7 +141,7 @@ export default function Game() {
                   <div className="flex flex-col space-y-1.5">
                     {/* <Label htmlFor="mines">Mines</Label>
                     <Separator /> */}
-                    <Input id="mines" placeholder="Number of Mines" className="w-[50px]"/>
+                    <Input id="mines" placeholder="12" className="w-[50px]"/>
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     {/* <Label htmlFor="difficulty">Level</Label>

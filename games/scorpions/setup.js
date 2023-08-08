@@ -1,6 +1,6 @@
 
 export const SETTINGS = {
-    numMines: 60,
+    numMines: 400,
     numRows: 40,
     numCols: 80,
   };

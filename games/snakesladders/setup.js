@@ -1,8 +1,8 @@
 
 export const SETTINGS = {
-    numMines: 25,
-    numRows: 16,
-    numCols: 30,
+    numMines: 7,
+    numRows: 5,
+    numCols: 8,
   };
   
   // export const cellSize = `calc(100vmin / ${Math.max(SETTINGS.numRows, SETTINGS.numCols)})`;

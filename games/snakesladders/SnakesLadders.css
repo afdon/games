@@ -6,13 +6,12 @@ body {
     padding: auto;
   }
 
-  /* h1 {
-    padding: 20px;
-    margin: 20px;
-  } */
-
   .board {
     max-width: 100vmin;
+  }
+
+  .start {
+    background: magenta;
   }
 
   .cell {
@@ -31,7 +30,7 @@ body {
   }
   
   .notrevealed:hover {
-    background: darkslategray;
+    background: blue;
     background: var(--clr)
   }
   
@@ -49,3 +48,5 @@ body {
     --clr: coral;
     cursor: not-allowed;
   }
+
+  

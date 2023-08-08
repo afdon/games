@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import "./Scorpions.css";
+import "./SnakesLadders.css";
 
 import {
   SETTINGS,
@@ -9,33 +9,6 @@ import {
   getDisplayValues,
   initialize,
 } from "./setup.js";
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-//////////
 
 let board = initialize();
 
@@ -112,50 +85,11 @@ export default function Game() {
 
       {/* <div>Mines Left: {SETTINGS.numMines - numFlagged}</div> */}
 
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button variant="outline">Open popover</Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-100">
-          <Card className="w-[450px]">
-            <CardHeader>
-              <CardTitle>Settings</CardTitle>
-              <Separator />
-              <CardDescription>Deploy your new project in one-click.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form>
-                <div className="grid w-full items-center gap-4">
-                  <div className="flex flex-row space-x-2 space-y-1.5">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="4" />
-                  </div>
-                  <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="framework">Framework</Label>
-                    <Select>
-                      <SelectTrigger id="framework">
-                        <SelectValue placeholder="Select" />
-                      </SelectTrigger>
-                      <SelectContent position="popper">
-                        <SelectItem value="next">Next.js</SelectItem>
-                        <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                        <SelectItem value="astro">Astro</SelectItem>
-                        <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-              </form>
-            </CardContent>
-            <CardFooter className="flex justify-between">
-              <Button variant="outline">Cancel</Button>
-              <Button>Deploy</Button>
-            </CardFooter>
-          </Card>
-        </PopoverContent>
-      </Popover>
-
       <div className="p-4"></div>
+
+      <div>
+
+      </div>
 
       <div
         className={`grid grid-rows-${SETTINGS.numRows} grid-cols-${SETTINGS.numCols}`}
@@ -195,7 +129,14 @@ export default function Game() {
 }
 
 const GameCell = (props) => {
+
   let cn = "cell";
+
+  // if (props.index === 0) {
+  //   cn += " start";
+  //   props.cellValue === "start";
+  // }
+
 
   if (props.isRevealed) {
     cn += " revealed";

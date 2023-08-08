@@ -5,6 +5,9 @@ import ListItem from "@/components/ListItem";
 import GameListItem from "@/components/ListItem";
 // import PageContent from "./components/PageContent";
 import Minesweeper from "@/games/minesweeper/Minesweeper";
+import Button from "@/components/Button"
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 //don't cache this page
 export const revalidate = 0;
@@ -12,6 +15,8 @@ export const revalidate = 0;
 export default async function Home() {
   const songs = await getSongs();
   const games = await getGames();
+
+  let router = useRouter();
 
   const heading = "Goodest Games"
 
@@ -41,6 +46,14 @@ export default async function Home() {
           ">
             {heading}
           </h1>
+
+          <div>
+
+          <Button>
+            <Link href="/games">Play Minesweeper</Link>
+            </Button>
+
+          </div>
 
 
           {/* <div

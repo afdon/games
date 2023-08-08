@@ -2,24 +2,25 @@
 
 import { useRouter } from "next/navigation";
 
-import { Song } from "@/types";
+import { Game } from "@/types";
 import { useUser } from "@/hooks/useUser";
 import { useEffect } from "react";
-import MediaItem from "@/components/MediaItem";
+import GameMediaItem from "@/components/GameMediaItem";
 import LikeButton from "@/components/LikeButton";
-import useOnPlay from "@/hooks/useOnPlay";
+import useOnGamePlay from "@/hooks/useOnGamePlay";
+import LikeGameButton from "@/components/LikeGameButton";
 
 interface LikedContentProps {
-    songs: Song[];
+    games: Game[];
 };
 
 const LikedContent: React.FC<LikedContentProps> = ({
-    songs
+    games
 }) => {
     const router = useRouter();
     const { isLoading, user } = useUser();
 
-    const onPlay = useOnPlay(songs);
+    const onGamePlay = useOnGamePlay(games);
 
     useEffect(() => {
         if (!isLoading && !user) {
@@ -27,7 +28,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
         }
     }, [isLoading, user, router]);
 
-    if (songs.length === 0) {
+    if (games.length === 0) {
         return (
             <div className="
             flex
@@ -37,25 +38,25 @@ const LikedContent: React.FC<LikedContentProps> = ({
             px-6
             text-neutral-400
             ">
-                No liked songs.
+                No liked games.
             </div>
         )
     }
 
     return (
         <div className="flex flex-col gap-y-2 w-full p-6">
-           {songs.map((song) => (
+           {games.map((game) => (
             <div
-            key={song.id}
+            key={game.id}
             className="flex items-center gap-x-4 w-full"
             >
                 <div className="flex-1">
-                    <MediaItem 
-                        onClick={(id: string) => onPlay(id)}
-                        data={song}
+                    <GameMediaItem 
+                        onClick={(id: string) => onGamePlay(id)}
+                        data={game}
                     />
                 </div>
-                <LikeButton songId={song.id} />
+                <LikeGameButton gameId={game.id} />
             </div>
            ))}
         </div>

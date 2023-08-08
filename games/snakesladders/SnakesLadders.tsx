@@ -26,7 +26,7 @@ const SnakesLadders = () => {
     new Array(SETTINGS.numMines).fill(false)
   );
 
-  const toggleFlag = (element, index) => {
+  const toggleFlag = (element: any, index: number) => {
     element.preventDefault();
 
     if (revealedCells[index]) return;
@@ -38,7 +38,7 @@ const SnakesLadders = () => {
     checkWin();
   };
 
-  const handleCellClick = (index) => {
+  const handleCellClick = (index: number) => {
 
     let newRevCells;
 
@@ -113,7 +113,7 @@ const SnakesLadders = () => {
           margin: "auto",
         }}
       >
-        {display.map((element, index) => (
+        {display.map((element: any, index: number) => (
           <GameCell
             key={index}
             index={index}
@@ -121,7 +121,7 @@ const SnakesLadders = () => {
             isFlagged={flagged[index]}
             cellValue={element}
             onClick={() => handleCellClick(index)}
-            onContextMenu={(event) => toggleFlag(event, index)}
+            onContextMenu={(event: any) => toggleFlag(event, index)}
           />
         ))}
       </div>
@@ -131,7 +131,7 @@ const SnakesLadders = () => {
 
 export default SnakesLadders;
 
-export const GameCell = (props) => {
+export const GameCell = (props: any) => {
 
   let cn = "cell";
 

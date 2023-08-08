@@ -48,10 +48,10 @@ export default async function Home() {
           </h1>
 
           <div>
-
+{/* 
           <Button>
             <Link href="/games">Play Minesweeper</Link>
-            </Button>
+            </Button> */}
 
           </div>
 

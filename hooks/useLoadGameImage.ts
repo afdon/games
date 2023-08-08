@@ -13,7 +13,7 @@ const useLoadGameImage = (game: Game) => {
         .storage
         // .from('game-images')
         .from('game')
-        .getPublicUrl(game.game_path);
+        .getPublicUrl(game.image_path);
 
     return gameData.publicUrl;
 };

@@ -55,7 +55,7 @@ export default function Game() {
     new Array(SETTINGS.numMines).fill(false)
   );
 
-  const toggleFlag = (element, index) => {
+  const toggleFlag = (element: any, index: number) => {
     element.preventDefault();
 
     if (revealedCells[index]) return;
@@ -67,7 +67,7 @@ export default function Game() {
     checkWin();
   };
 
-  const handleCellClick = (index) => {
+  const handleCellClick = (index: number) => {
 
     let newRevCells;
 
@@ -196,7 +196,7 @@ export default function Game() {
           margin: "auto",
         }}
       >
-        {display.map((element, index) => (
+        {display.map((element: any, index: number) => (
           <GameCell
             key={index}
             index={index}
@@ -204,7 +204,7 @@ export default function Game() {
             isFlagged={flagged[index]}
             cellValue={element}
             onClick={() => handleCellClick(index)}
-            onContextMenu={(event) => toggleFlag(event, index)}
+            onContextMenu={(event: any) => toggleFlag(event, index)}
           />
         ))}
       </div>
@@ -212,7 +212,7 @@ export default function Game() {
   );
 }
 
-const GameCell = (props) => {
+const GameCell = (props: any) => {
   let cn = "cell";
 
   if (props.isRevealed) {

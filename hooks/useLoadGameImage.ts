@@ -2,19 +2,19 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react"
 
 import { Game } from "@/types"
 
-const useLoadGameImage = (game: Game) => {
+const useLoadImage = (game: Game) => {
     const supabaseClient = useSupabaseClient();
 
     if (!game) {
         return null;
     }
 
-    const { data: gameData } = supabaseClient
+    const { data: imageData } = supabaseClient
         .storage
-        .from('games')
+        .from('images')
         .getPublicUrl(game.image_path);
 
-    return gameData.publicUrl;
+    return imageData.publicUrl;
 };
 
-export default useLoadGameImage;
+export default useLoadImage;

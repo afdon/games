@@ -44,7 +44,7 @@ const LikedGames = async () => {
                             fill
                             alt="Playlist"
                             className="object-cover"
-                            src="/images/astronault-riding-rocket.jpg"
+                            src="/images/astronaut-riding-rocket.jpg"
                             />
                         </div>
                         <div className="

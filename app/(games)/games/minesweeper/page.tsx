@@ -1,23 +1,17 @@
-import getSongs from "@/actions/getSongs";
+// import getGames from "@/actions/getGames";
 import Header from "@/components/Header";
-import ListItem from "@/components/ListItem";
-
 import Minesweeper from "@/games/minesweeper/Minesweeper";
 
-
-//don't cache this page
 export const revalidate = 0;
 
 export default async function Home() {
-  const songs = await getSongs();
+  // const songs = await getGames();
 
   const game = "Minesweeper"
 
-  // throw new Error('Test!')
-
   return (
     <div className='
-    bg-neutral-900
+    bg-black
     rounded-lg
     h-full
     w-full
@@ -31,9 +25,9 @@ export default async function Home() {
           text-white
           text-3xl
           font-semibold
+          mt-[-60px]
           ">
-            {/* {game} */}
-            {/* Latest Games */}
+            {game}
           </h1>
           <div
             className="
@@ -46,16 +40,6 @@ export default async function Home() {
           mt-4
           "
           >
-            {/* <ListItem
-              image="/images/gamewave.png"
-              name="Latest"
-              href="latest"
-            />
-            <ListItem
-              image="/images/liked.png"
-              name="Liked"
-              href="liked"
-            /> */}
           </div>
         </div>
       </Header>
@@ -65,11 +49,10 @@ export default async function Home() {
             {/* Minesweeper */}
           </h1>
         </div>
-        {/* <div>
-          <PageContent songs={songs} />
-        </div> */}
         <div>
           <Minesweeper />
+        </div>
+        <div>
         </div>
       </div>
     </div>

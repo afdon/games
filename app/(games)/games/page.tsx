@@ -1,9 +1,9 @@
 import getSongs from "@/actions/getSongs";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
-
+// import PageContent from "./components/PageContent";
 import Minesweeper from "@/games/minesweeper/Minesweeper";
-
 
 //don't cache this page
 export const revalidate = 0;
@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <div className='
-    bg-neutral-900
+    bg-black
     rounded-lg
     h-full
     w-full
@@ -66,10 +66,12 @@ export default async function Home() {
           </h1>
         </div>
         {/* <div>
-          <PageContent songs={songs} />
+          <PageContent game={games} />
         </div> */}
         <div>
           <Minesweeper />
+        </div>
+        <div>
         </div>
       </div>
     </div>

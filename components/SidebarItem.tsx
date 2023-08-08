@@ -32,6 +32,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         transition
         text-neutral-400
         py-1
+        text-left
         `,
         active && "text-white"
         )}

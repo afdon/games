@@ -10,6 +10,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { toast } from "react-hot-toast";
 
 import Button from "./Button";
+import DarkModeToggle  from "./DarkModeToggle";
 
 import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/UseAuthModal";
@@ -135,6 +136,9 @@ const Header: React.FC<HeaderProps> = ({
                 items-center
                 gap-x-4
                 ">
+                    <div className="flex gap-x-4 items-center">
+                        {/* <DarkModeToggle /> */}
+                    </div>
                     {user ? (
                         <div className="flex gap-x-4 items-center">
                             <Button

@@ -9,7 +9,9 @@ import { MdOutlineGames } from 'react-icons/md';
 import { RiGameFill } from 'react-icons/ri';
 
 import { Song } from '@/types';
+import { Game } from '@/types';
 import usePlayer from '@/hooks/usePlayer';
+import useGamePlayer from '@/hooks/useGamePlayer';
 
 import Box from './Box';
 import SidebarItem from './SidebarItem';
@@ -20,15 +22,18 @@ import GameLibrary from './GameLibrary';
 
 interface SidebarProps {
     children: React.ReactNode;
-    songs: Song[]
+    songs: Song[];
+    games: Game[]
 };
 
 const Sidebar: React.FC<SidebarProps> = ({
     children,
+    games,
     songs
 }) => {
     const pathname = usePathname();
     const player = usePlayer();
+    const gamePlayer = useGamePlayer();
 
     const routes = useMemo(() => [
         {
@@ -102,10 +107,16 @@ const Sidebar: React.FC<SidebarProps> = ({
                     </div>
                 </Box>
                 <Box className='overflow-y-auto h-full'>
-                    <GameLibrary songs={songs}/>
+                    <Library songs={songs}/>
                 </Box>
                 <Box className='overflow-y-auto h-full'>
                     <Library songs={songs}/>
+                </Box>
+                <Box className='overflow-y-auto h-full'>
+                    <GameLibrary songs={songs} games={games}/>
+                </Box>
+                <Box className='overflow-y-auto h-full'>
+                    <GameLibrary songs={songs} games={games}/>
                 </Box>
             </div>
             <main className='h-full flex-1 overflow-y-auto py-2'>

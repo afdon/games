@@ -26,3 +26,5 @@ const Box: React.FC<BoxProps> = ({
         </div>
 }
 export default Box;
+
+// substituted bg-neutral-900 for bg-black

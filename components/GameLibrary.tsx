@@ -9,26 +9,35 @@ import useAuthModal from '@/hooks/UseAuthModal';
 import { useUser } from '@/hooks/useUser';
 import useUploadModal from '@/hooks/useUploadModal';
 import { Song } from '@/types';
+import { Game } from '@/types';
 import useOnPlay from '@/hooks/useOnPlay';
+import useOnGamePlay from '@/hooks/useOnGamePlay';
 import useSubscribeModal from '@/hooks/useSubscribeModal';
 
 import MediaItem from './MediaItem';
 
 interface LibraryProps {
     songs: Song[];
+    games: Game[];
 }
 
 const Library: React.FC<LibraryProps> = ({
-    songs
+    songs,
+    games
 }) => {
     const subscribeModal = useSubscribeModal();
     const authModal = useAuthModal();
     const uploadModal = useUploadModal();
     const { user, subscription } = useUser();
 
-    const onPlay = useOnPlay(songs);
+    const onGamePlay = useOnGamePlay(games);
 
-    const onClick = () => {
+    const onClick = {
+        // todo
+        // expand this
+    }
+
+    const onClick2 = () => {
         if (!user) {
             return authModal.onOpen();
         }
@@ -64,7 +73,7 @@ const Library: React.FC<LibraryProps> = ({
                     </p>
                 </div>
                 <AiOutlinePlus
-                onClick={onClick}
+                // onClick={onClick}
                 size={20}
                 className='
                 text-neutral-400
@@ -82,9 +91,9 @@ const Library: React.FC<LibraryProps> = ({
             mt-4
             px-3
             '>
-                {songs.map((item) => (
+                {games.map((item) => (
                     <MediaItem
-                    onClick={(id: string) => onPlay(id)}
+                    onClick={(id: string) => onGamePlay(id)}
                     key={item.id}
                     data={item}
                     />

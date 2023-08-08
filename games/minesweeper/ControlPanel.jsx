@@ -1,16 +1,15 @@
-// import Button from "@/components/Button";
-import { Button } from "@/components/ui/button"
 
 
-const ControlPanel = () => {
+
+const ControlPanel = (props) => {
+
+    // const settings = props
+
     return (
        <>
        <div className= "">
-
-        {/* <Button>
-            Hello!
-        </Button> */}
-            
+            <p className="text-red">Mines: {props.numMines}</p>
+        
        </div>
        </>
     );

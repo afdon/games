@@ -10,6 +10,30 @@ import {
 import "./Minesweeper.css";
 import ControlPanel from "./ControlPanel.jsx";
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 //////////
 
 let board = initialize();
@@ -40,7 +64,6 @@ export default function Game() {
   };
 
   const handleCellClick = (index) => {
-    // console.log(revealedCells[index], index);
 
     let newRevCells;
 
@@ -75,6 +98,12 @@ export default function Game() {
   const longestSide = Math.max(SETTINGS.numRows, SETTINGS.numCols);
   const divided = 100 / longestSide;
 
+  const minesLeft = SETTINGS.numMines - numFlagged
+
+  const getProgress = () => {
+    return total - revealedCells.length
+  }
+
   return (
     <>
       {gameState === "lost" && <p>You lost!</p>}
@@ -82,7 +111,49 @@ export default function Game() {
 
       {/* <div>Mines Left: {SETTINGS.numMines - numFlagged}</div> */}
 
-      <ControlPanel />
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button variant="outline">Open popover</Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-100">
+          <Card className="w-[350px]">
+            <CardHeader>
+              <CardTitle>Create project</CardTitle>
+              <CardDescription>Deploy your new project in one-click.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form>
+                <div className="grid w-full items-center gap-4">
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" placeholder="Name of your project" />
+                  </div>
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="framework">Framework</Label>
+                    <Select>
+                      <SelectTrigger id="framework">
+                        <SelectValue placeholder="Select" />
+                      </SelectTrigger>
+                      <SelectContent position="popper">
+                        <SelectItem value="next">Next.js</SelectItem>
+                        <SelectItem value="sveltekit">SvelteKit</SelectItem>
+                        <SelectItem value="astro">Astro</SelectItem>
+                        <SelectItem value="nuxt">Nuxt.js</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </form>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Button variant="outline">Cancel</Button>
+              <Button>Deploy</Button>
+            </CardFooter>
+          </Card>
+        </PopoverContent>
+      </Popover>
+
+      <div className="p-4"></div>
 
       <div
         className={`grid grid-rows-${SETTINGS.numRows} grid-cols-${SETTINGS.numCols}`}
@@ -92,15 +163,15 @@ export default function Game() {
           height: "auto",
           gridTemplateRows: `repeat(${SETTINGS.numRows},
             calc(100vmin / ${Math.max(
-              SETTINGS.numRows, 
-              SETTINGS.numCols
-              )}))
+            SETTINGS.numRows,
+            SETTINGS.numCols
+          )}))
             `,
           gridTemplateColumns: `repeat(${SETTINGS.numCols},
             calc(100vmin / ${Math.max(
-              SETTINGS.numRows,
-              SETTINGS.numCols
-            )}))            `,
+            SETTINGS.numRows,
+            SETTINGS.numCols
+          )}))            `,
           overflow: "hidden",
           margin: "auto",
         }}

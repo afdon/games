@@ -40,6 +40,23 @@ export interface Database {
           user_id?: string
         }
       }
+      liked_games: {
+        Row: {
+          created_at: string | null
+          game_id: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          game_id: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          game_id?: number
+          user_id?: string
+        }
+      }
       prices: {
         Row: {
           active: boolean | null
@@ -225,6 +242,7 @@ export interface Database {
           full_name: string | null
           id: string
           payment_method: Json | null
+          role: string | null
         }
         Insert: {
           avatar_url?: string | null

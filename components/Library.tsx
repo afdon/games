@@ -1,8 +1,8 @@
 'use client';
 
-import { IoLogoGameControllerB } from 'react-icons/io';
-import { TbPlaylist } from 'react-icons/tb';
-import { RiGameFill } from 'react-icons/ri';
+// import { IoLogoGameControllerB } from 'react-icons/io';
+// import { TbPlaylist } from 'react-icons/tb';
+// import { RiGameFill } from 'react-icons/ri';
 import { MdOutlineGames } from 'react-icons/md';
 
 import { AiOutlinePlus } from 'react-icons/ai';

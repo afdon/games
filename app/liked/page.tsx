@@ -2,14 +2,14 @@
 import Image from "next/image";
 
 import Header from "@/components/Header";
-import getLikedSongs from "@/actions/getLikedSongs";
+import getLikedGames from "@/actions/getLikedGames";
 
 import LikedContent from "./components/LikedContent";
 
 export const revalidate = 0;
 
 const Liked = async () => {
-    const songs = await getLikedSongs();
+    const games = await getLikedGames();
     return (
         <div
         className="
@@ -53,10 +53,10 @@ const Liked = async () => {
                         mt-4
                         md:mt-0
                         ">
-                            <p className="hidden md:block font-sem
+                            {/* <p className="hidden md:block font-sem
                             text-sm">
                                 Playlist
-                            </p>
+                            </p> */}
                             <h1 className="
                             text-white
                             text-4xl
@@ -64,13 +64,13 @@ const Liked = async () => {
                             lg:text-6xl
                             font-bold
                             ">
-                                Liked Songs
+                                Liked Games
                             </h1>
                         </div>
                     </div>
                 </div>
             </Header>
-            <LikedContent songs={songs} />
+            <LikedContent games={games} />
         </div>
     );
 }

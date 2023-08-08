@@ -19,7 +19,7 @@ const Search = async ({ searchParams }: SearchProps) => {
             className="
                 bg-neutral-900
                 rounded-lg
-                h-full
+                h-[100vh]
                 w-full
                 overflow-hidden
                 overflow-y-auto

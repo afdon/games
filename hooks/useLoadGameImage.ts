@@ -9,12 +9,12 @@ const useLoadGameImage = (game: Game) => {
         return null;
     }
 
-    const { data: imageData } = supabaseClient
+    const { data: gameImageData } = supabaseClient
         .storage
         .from('game-images')
         .getPublicUrl(game.image_path);
 
-    return imageData.publicUrl;
+    return gameImageData.publicUrl;
 };
 
 export default useLoadGameImage;

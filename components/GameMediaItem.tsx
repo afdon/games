@@ -1,18 +1,18 @@
 "use client"
 
 import useLoadImage from "@/hooks/useLoadImage";
-import useLoadGameImage from "@/hooks/useLoadImage";
-import useGamePlayer from "@/hooks/usePlayer";
+import useLoadGameImage from "@/hooks/useLoadGameImage";
+import useGamePlayer from "@/hooks/useGamePlayer";
 import { Game } from "@/types";
 
 import Image from "next/image";
 
-interface MediaItemProps {
+interface GameMediaItemProps {
     data: Game;
     onClick?: (id: string) => void;
 }
 
-const MediaItem: React.FC<MediaItemProps> = ({
+const GameMediaItem: React.FC<GameMediaItemProps> = ({
     data,
     onClick
 }) => {
@@ -73,4 +73,4 @@ const MediaItem: React.FC<MediaItemProps> = ({
     );
 }
 
-export default MediaItem;
+export default GameMediaItem;

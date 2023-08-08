@@ -6,24 +6,24 @@ import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
 
-import { Song } from "@/types";
-import usePlayer from "@/hooks/usePlayer";
+import { Game } from "@/types";
+import useGamePlayer from "@/hooks/useGamePlayer";
 
-import LikeButton from "./LikeButton";
-import MediaItem from "./MediaItem";
+import LikeGameButton from "./LikeGameButton";
+import GameMediaItem from "./GameMediaItem";
 import Slider from "./Slider";
 
 
-interface PlayerContentProps {
-    song: Song;
-    songUrl: string;
+interface GamePlayerContentProps {
+    game: Game;
+    gameUrl: string;
 };
 
-const PlayerContent: React.FC<PlayerContentProps> = ({
-    song,
-    songUrl
+const GamePlayerContent: React.FC<GamePlayerContentProps> = ({
+    game,
+    gameUrl
 }) => {
-    const player = usePlayer();
+    const gamePlayer = useGamePlayer();
     const [volume, setVolume] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -31,37 +31,37 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave;
 
     const onPlayNext = () => {
-        if (player.ids.length === 0) {
+        if (gamePlayer.ids.length === 0) {
             return;
         }
 
-        const currentIndex = player.ids.findIndex((id) => id === player.activeId);
-        const nextSong = player.ids[currentIndex + 1];
+        const currentIndex = gamePlayer.ids.findIndex((id) => id === gamePlayer.activeId);
+        const nextGame = gamePlayer.ids[currentIndex + 1];
 
-        if (!nextSong) {
-            return player.setId(player.ids[0]);
+        if (!nextGame) {
+            return gamePlayer.setId(gamePlayer.ids[0]);
         }
 
-        player.setId(nextSong);
+        gamePlayer.setId(nextGame);
     }
 
     const onPlayPrevious = () => {
-        if (player.ids.length === 0) {
+        if (gamePlayer.ids.length === 0) {
             return;
         }
 
-        const currentIndex = player.ids.findIndex((id) => id === player.activeId);
-        const previousSong = player.ids[currentIndex - 1];
+        const currentIndex = gamePlayer.ids.findIndex((id) => id === gamePlayer.activeId);
+        const previousGame = gamePlayer.ids[currentIndex - 1];
 
-        if (!previousSong) {
-            return player.setId(player.ids[player.ids.length - 1]);
+        if (!previousGame) {
+            return gamePlayer.setId(gamePlayer.ids[gamePlayer.ids.length - 1]);
         }
 
-        player.setId(previousSong);
+        gamePlayer.setId(previousGame);
     }
 
     const [play, { pause, sound }] = useSound(
-        songUrl,
+        gameUrl,
         {
             volume: volume,
             onplay: () => setIsPlaying(true),
@@ -102,8 +102,8 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
             <div className="flex w-full justify-start">
                 <div className="flex items-center gap-x-4">
-                    <MediaItem data={song} />
-                    <LikeButton songId={song.id} />
+                    <GameMediaItem data={game} />
+                    <LikeGameButton gameId={game.id} />
                 </div>
             </div>
 
@@ -202,4 +202,4 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     );
 }
 
-export default PlayerContent;
+export default GamePlayerContent;

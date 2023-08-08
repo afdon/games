@@ -1,5 +1,5 @@
 import getSongs from "@/actions/getSongs";
-import DarkModeToggle from "@/components/DarkModeToggle";
+import DarkModeToggle from "@/components/unused/DarkModeToggle";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 // import PageContent from "./components/PageContent";

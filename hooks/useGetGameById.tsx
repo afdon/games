@@ -2,11 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import { useSessionContext } from "@supabase/auth-helpers-react";
 import toast from "react-hot-toast";
 
-import { Song } from "@/types";
+import { Game } from "@/types";
 
-const useGetSongById = (id?: string) => {
+const useGetGameById = (id?: string) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [song, setSong] = useState<Song | undefined>(undefined);
+    const [game, setGame] = useState<Game | undefined>(undefined);
     const { supabaseClient } = useSessionContext();
 
     useEffect(() => {
@@ -16,9 +16,9 @@ const useGetSongById = (id?: string) => {
 
         setIsLoading(true);
 
-        const fetchSong = async () => {
+        const fetchGame = async () => {
             const { data, error } = await supabaseClient
-            .from('songs')
+            .from('games')
             .select('*')
             .eq('id', id)
             .single();
@@ -28,17 +28,17 @@ const useGetSongById = (id?: string) => {
                 return toast.error(error.message);
             }
 
-            setSong(data as Song);
+            setGame(data as Game);
             setIsLoading(false);
         }
         
-        fetchSong();
+        fetchGame();
     }, [id, supabaseClient]);
 
     return useMemo(() => ({
         isLoading,
-        song
-    }), [isLoading, song]);
+        game: game
+    }), [isLoading, game]);
 }
 
-export default useGetSongById;
+export default useGetGameById;

@@ -10,7 +10,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { toast } from "react-hot-toast";
 
 import Button from "./Button";
-import DarkModeToggle  from "./DarkModeToggle";
+import DarkModeToggle  from "./unused/DarkModeToggle";
 
 import { useUser } from "@/hooks/useUser";
 import useAuthModal from "@/hooks/UseAuthModal";

@@ -15,7 +15,7 @@ let board = initialize();
 
 let display = getDisplayValues(board);
 
-export default SnakesLadders = () => {
+const SnakesLadders = () => {
   const [revealedCells, setRevealedCells] = useState(
     new Array(SETTINGS.numRows * SETTINGS.numCols).fill(false)
   );
@@ -128,6 +128,8 @@ export default SnakesLadders = () => {
     </>
   );
 }
+
+export default SnakesLadders;
 
 export const GameCell = (props) => {
 

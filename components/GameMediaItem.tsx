@@ -52,7 +52,7 @@ const GameMediaItem: React.FC<GameMediaItemProps> = ({
                 <Image
                     fill
                     src={imageURL || '/images/liked.png'}
-                    alt="Media Item"
+                    alt="🎲"
                     className="object-cover"
                 />
             </div>

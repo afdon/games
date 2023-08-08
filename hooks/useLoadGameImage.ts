@@ -12,7 +12,7 @@ const useLoadGameImage = (game: Game) => {
     const { data: gameData } = supabaseClient
         .storage
         // .from('game-images')
-        .from('game')
+        .from('games')
         .getPublicUrl(game.image_path);
 
     return gameData.publicUrl;

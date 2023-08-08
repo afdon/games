@@ -1,30 +1,33 @@
 "use client"
 
 import useLoadImage from "@/hooks/useLoadImage";
-import useLoadGameImage from "@/hooks/useLoadGameImage";
+import usePlayer from "@/hooks/usePlayer";
 import useGamePlayer from "@/hooks/useGamePlayer";
 import { Game } from "@/types";
+import { Song } from "@/types";
 
 import Image from "next/image";
 
-interface GameMediaItemProps {
+interface MediaItemProps {
     data: Game;
     onClick?: (id: string) => void;
 }
 
-const GameMediaItem: React.FC<GameMediaItemProps> = ({
+const MediaItem: React.FC<MediaItemProps> = ({
     data,
     onClick
 }) => {
+    const player = usePlayer();
     const gamePlayer = useGamePlayer();
-    const imageURL = useLoadGameImage(data);
+    const imageURL = useLoadImage(data);
 
     const handleClick = () => {
         if (onClick) {
             return onClick(data.id);
         }
         // do we need the below?
-        return gamePlayer.setId(data.id);
+        return player.setId(data.id);
+        // return gamePlayer.setId(data.id);
     }
 
     return (
@@ -52,7 +55,7 @@ const GameMediaItem: React.FC<GameMediaItemProps> = ({
                 <Image
                     fill
                     src={imageURL || '/images/liked.png'}
-                    alt="🎲"
+                    alt="Media Item"
                     className="object-cover"
                 />
             </div>
@@ -73,4 +76,4 @@ const GameMediaItem: React.FC<GameMediaItemProps> = ({
     );
 }
 
-export default GameMediaItem;
+export default MediaItem;

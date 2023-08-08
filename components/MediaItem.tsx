@@ -1,15 +1,15 @@
 "use client"
 
-import useLoadGameImage from "@/hooks/useLoadImage";
+import useLoadImage from "@/hooks/useLoadImage";
 import usePlayer from "@/hooks/usePlayer";
-import useGamePlayer from "@/hooks/usePlayer";
+import useGamePlayer from "@/hooks/useGamePlayer";
 import { Game } from "@/types";
 import { Song } from "@/types";
 
 import Image from "next/image";
 
 interface MediaItemProps {
-    data: Song;
+    data: Game;
     onClick?: (id: string) => void;
 }
 
@@ -19,7 +19,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
 }) => {
     const player = usePlayer();
     const gamePlayer = useGamePlayer();
-    const imageURL = useLoadGameImage(data);
+    const imageURL = useLoadImage(data);
 
     const handleClick = () => {
         if (onClick) {

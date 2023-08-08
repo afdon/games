@@ -18,9 +18,9 @@ export default async function Home() {
 
   return (
     <div className='
-    bg-black
+    bg-neutral-900
     rounded-lg
-    h-full
+    h-[100vh]
     w-full
     overflow-hidden
     overflow-y-auto

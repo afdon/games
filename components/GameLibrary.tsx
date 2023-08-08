@@ -12,6 +12,7 @@ import useOnGamePlay from '@/hooks/useOnGamePlay';
 import useSubscribeModal from '@/hooks/useSubscribeModal';
 
 import GameMediaItem from './MediaItem';
+import { Separator } from './ui/separator';
 
 interface GameLibraryProps {
     games: Game[];
@@ -81,6 +82,7 @@ const GameLibrary: React.FC<GameLibraryProps> = ({
             gap-y-2
             mt-4
             px-3
+            pb-3
             '>
                 {games.map((item) => (
                     <GameMediaItem
@@ -90,6 +92,7 @@ const GameLibrary: React.FC<GameLibraryProps> = ({
                     />
                 ))}
             </div>
+            <Separator />
         </div>
     );
 }

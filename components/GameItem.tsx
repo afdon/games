@@ -1,6 +1,7 @@
 "use client";
 
 import useLoadImage from "@/hooks/useLoadImage";
+import useLoadGameImage from "@/hooks/useLoadGameImage";
 import { Game } from "@/types";
 import Image from "next/image";
 import GamePlayButton from "./GamePlayButton";
@@ -14,7 +15,7 @@ const GameItem: React.FC<GameItemProps> = ({
     data,
     onClick
 }) => {
-    const imagePath = useLoadImage(data);
+    const imagePath = useLoadGameImage(data);
     
     return (
         <div

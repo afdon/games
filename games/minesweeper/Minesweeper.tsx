@@ -41,16 +41,17 @@ import { useRouter } from "next/navigation.js";
 
 
 export default function Game() {
-  const [revealedCells, setRevealedCells] = useState(
-    new Array(SETTINGS.numRows * SETTINGS.numCols).fill(false)
-  );
 
   const [ settings, setSettings ] = useState({ mines: 25, rows: 16, cols: 30 });
 
   const [gameState, setGameState] = useState("playing");
 
   const [flagged, setFlagged] = useState(
-    new Array(SETTINGS.numMines).fill(false)
+    new Array(settings.mines).fill(false)
+  );
+
+  const [revealedCells, setRevealedCells] = useState(
+    new Array(settings.rows * settings.cols).fill(false)
   );
 
   const toggleFlag = (element: any, index: number) => {
@@ -71,7 +72,7 @@ export default function Game() {
 
     if (board[index] >= 10) {
       setGameState("lost");
-      newRevCells = new Array(SETTINGS.numRows * SETTINGS.numCols).fill(true);
+      newRevCells = new Array(settings.rows * settings.cols).fill(true);
     } else {
       newRevCells = [...revealedCells];
       const cellsToReveal = findConnectedCellsToReveal(index, board);
@@ -84,7 +85,7 @@ export default function Game() {
     setRevealedCells(newRevCells);
   };
 
-  const total = SETTINGS.numRows * SETTINGS.numCols;
+  const total = settings.rows * settings.rows;
   let numRevealed = revealedCells.filter((cell) => cell === true).length;
   let numFlagged = flagged.filter((cell) => cell === true).length;
 
@@ -97,26 +98,25 @@ export default function Game() {
     }
   };
 
-  const longestSide = Math.max(SETTINGS.numRows, SETTINGS.numCols);
+  const longestSide = Math.max(settings.rows, settings.cols);
   const divided = 100 / longestSide;
 
-  const minesLeft = SETTINGS.numMines - numFlagged
+  const minesLeft = settings.mines - numFlagged
 
   const getProgress = () => {
     return total - revealedCells.length
   }
 
   const router = useRouter();
-
-  let board = initialize(settings);
-
-  let display = getDisplayValues(board);
-
+  
   const handleReset = () => {
     // if value === "easy" 
     // if value === "medium"
     // if value === "hard"
   }
+  
+    let board = initialize(settings);
+    let display = getDisplayValues(board);
 
   return (
     <> 
@@ -174,21 +174,20 @@ export default function Game() {
       <div className="p-4"></div>
 
       <div
-        className={`grid grid-rows-${SETTINGS.numRows} grid-cols-${SETTINGS.numCols}`}
+        className={`grid grid-rows-${settings.rows} grid-cols-${settings.cols}`}
         style={{
           display: "grid",
           width: "100vh",
           height: "auto",
-          gridTemplateRows: `repeat(${SETTINGS.numRows},
+          gridTemplateRows: `repeat(${settings.rows},
             calc(100vmin / ${Math.max(
-            SETTINGS.numRows,
-            SETTINGS.numCols
+            settings.rows,
+            settings.cols
           )}))
             `,
-          gridTemplateColumns: `repeat(${SETTINGS.numCols},
+          gridTemplateColumns: `repeat(${settings.cols},
             calc(100vmin / ${Math.max(
-            SETTINGS.numRows,
-            SETTINGS.numCols
+            settings.rows,settings.cols
           )}))            `,
           overflow: "hidden",
           margin: "auto",

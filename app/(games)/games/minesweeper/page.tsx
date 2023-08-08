@@ -26,6 +26,9 @@ export default async function Home() {
           text-3xl
           font-semibold
           mt-[-60px]
+          text-center
+          hidden
+          lg:block
           ">
             {game}
           </h1>

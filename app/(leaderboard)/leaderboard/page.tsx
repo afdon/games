@@ -23,6 +23,8 @@ const Leaderboard = () => {
           font-semibold
           text-center
           mt-[-60px]
+          hidden
+          lg:block
           ">
             {heading}
           </h1>

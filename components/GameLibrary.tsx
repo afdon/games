@@ -86,7 +86,7 @@ const GameLibrary: React.FC<GameLibraryProps> = ({
             pb-3
             '>
                 {games.map((item) => (
-                    <GameMediaItem
+                    <MediaItem
                         onClick={(id: string) => onGamePlay(id)}
                         key={item.id}
                         data={item}

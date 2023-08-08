@@ -8,6 +8,7 @@ import ToasterProvider from '@/providers/ToasterProvider'
 import getSongsByUserId from '@/actions/getSongsByUserId'
 import getGamesByUserId from '@/actions/getSongsByUserId'
 import Player from '@/components/Player'
+import GamePlayer from '@/components/GamePlayer'
 import getActiveProductsWithPrices from '@/actions/getActiveProductsWithPrices'
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -42,6 +43,7 @@ export default async function RootLayout({
           <Sidebar songs={userSongs} games={userGames}>
             {children}
           </Sidebar>
+          <GamePlayer />
           <Player />
           </UserProvider>
         </SupabaseProvider>

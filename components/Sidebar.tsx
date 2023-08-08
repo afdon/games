@@ -77,7 +77,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             flex
             h-full
         `,
-            player.activeId && "h-[calc(100% -80px)]"
+            gamePlayer.activeId && "h-[calc(100% -80px)]"
         )}>
             <div className='
             hidden
@@ -110,13 +110,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     <Library songs={songs}/>
                 </Box>
                 <Box className='overflow-y-auto h-full'>
-                    <Library songs={songs}/>
-                </Box>
-                <Box className='overflow-y-auto h-full'>
-                    <GameLibrary songs={songs} games={games}/>
-                </Box>
-                <Box className='overflow-y-auto h-full'>
-                    <GameLibrary songs={songs} games={games}/>
+                    <GameLibrary games={games}/>
                 </Box>
             </div>
             <main className='h-full flex-1 overflow-y-auto py-2'>

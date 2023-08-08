@@ -1,6 +1,6 @@
-import { FaPlay } from "react-icons/fa";
+import { IoLogoGameControllerB } from "react-icons/io";
 
-const PlayButton = () => {
+const GamePlayButton = () => {
     return (
         <button
         className="
@@ -19,9 +19,9 @@ const PlayButton = () => {
         hover:scale-110
         "
         >
-            <FaPlay className="text-black"/>
+            <IoLogoGameControllerB className="text-black"/>
         </button>
     );
 }
 
-export default PlayButton;
+export default GamePlayButton;

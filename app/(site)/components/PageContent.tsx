@@ -1,8 +1,8 @@
 "use client";
 
 import { Game } from '@/types';
-import useOnPlay from '@/hooks/useOnPlay';
-import GameItem from '@/components/SongItem';
+import useOnGamePlay from '@/hooks/useOnGamePlay';
+import GameItem from '@/components/GameItem';
 
 interface PageContentProps {
     games: Game[];
@@ -11,11 +11,11 @@ interface PageContentProps {
 const PageContent: React.FC<PageContentProps> = ({
     games
 }) => {
-    const onPlay = useOnPlay(games);
+    const onGamePlay = useOnGamePlay(games);
 
     
 
-    if (songs.length === 0) {
+    if (games.length === 0) {
         return (
             <div className='mt-4 text-neutral-400'>
                 No games available.
@@ -40,7 +40,7 @@ const PageContent: React.FC<PageContentProps> = ({
             {games.map((item) => (
                 <GameItem
                     key={item.id}
-                    onClick={(id: string) => onPlay(id)}
+                    onClick={(id: string) => onGamePlay(id)}
                     data={item}
                 />
             ))}

@@ -26,7 +26,7 @@ body {
   }
   
   .notrevealed {
-    background: gray;
+    background: darkorchid;
     cursor: pointer;
   }
   
@@ -37,7 +37,7 @@ body {
   
   .revealed {
     --clr: darkgreen;
-    background: darkorchid;
+    background: darkturquoise;
     overflow: hidden;
   }
   

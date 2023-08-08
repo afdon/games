@@ -1,20 +1,20 @@
 "use client";
 
-import LikeGameButton from "@/components/LikeGameButton";
-import GameMediaItem from "@/components/GameMediaItem";
-import useOnGamePlay from "@/hooks/useOnGamePlay";
-import { Game } from "@/types";
+import LikeButton from "@/components/LikeButton";
+import MediaItem from "@/components/MediaItem";
+import useOnPlay from "@/hooks/useOnPlay";
+import { Song } from "@/types";
 
 interface SearchContentProps {
-    games: Game[];
+    songs: Song[];
 }
 
 const SearchContent: React.FC<SearchContentProps> = ({
-    games
+    songs
 }) => {
-    const onGamePlay = useOnGamePlay(games);
+    const onPlay = useOnPlay(songs);
 
-    if (games.length === 0) {
+    if (songs.length === 0) {
         return (
             <div className="
             flex
@@ -24,25 +24,25 @@ const SearchContent: React.FC<SearchContentProps> = ({
             px-6
             text-neutral-400
             ">
-                No games found.
+                No songs found.
             </div>
         )
     }
 
     return (
         <div className="flex flex-col gap-y-2 w-full px-6">
-            {games.map((game) => (
+            {songs.map((song) => (
                 <div
-                key={game.id}
+                key={song.id}
                 className="flex items-center gap-x-4 w-full"
                 >
                     <div className="flex-1">
-                        <GameMediaItem 
-                        onClick={(id: string) => onGamePlay(id)}
-                        data={game}
+                        <MediaItem 
+                        onClick={(id: string) => onPlay(id)}
+                        data={song}
                         />
                     </div>
-                    <LikeGameButton gameId={game.id} />
+                    <LikeButton songId={song.id} />
                 </div>
             ))}
         </div>

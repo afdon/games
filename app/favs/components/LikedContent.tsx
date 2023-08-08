@@ -6,6 +6,7 @@ import { Game } from "@/types";
 import { useUser } from "@/hooks/useUser";
 import { useEffect } from "react";
 import MediaItem from "@/components/MediaItem";
+import GameMediaItem from "@/components/GameMediaItem";
 import LikeGameButton from "@/components/LikeGameButton";
 import useOnGamePlay from "@/hooks/useOnGamePlay";
 
@@ -50,7 +51,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
             className="flex items-center gap-x-4 w-full"
             >
                 <div className="flex-1">
-                    <MediaItem 
+                    <GameMediaItem 
                         onClick={(id: string) => onGamePlay(id)}
                         data={game}
                     />

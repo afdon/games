@@ -40,14 +40,12 @@ import { useRouter } from "next/navigation.js";
 //////////
 
 
-let board = initialize();
-
-let display = getDisplayValues(board);
-
 export default function Game() {
   const [revealedCells, setRevealedCells] = useState(
     new Array(SETTINGS.numRows * SETTINGS.numCols).fill(false)
   );
+
+  const [ settings, setSettings ] = useState({ mines: 25, rows: 16, cols: 30 });
 
   const [gameState, setGameState] = useState("playing");
 
@@ -110,14 +108,14 @@ export default function Game() {
 
   const router = useRouter();
 
-  // let m: number;
-  // let r: number;
-  // let c: number;
+  let board = initialize(settings);
 
+  let display = getDisplayValues(board);
 
-
-  const reinitialize = (m: number, r:number, c: number) => {
-    display = reinit()
+  const handleReset = () => {
+    // if value === "easy" 
+    // if value === "medium"
+    // if value === "hard"
   }
 
   return (
@@ -129,7 +127,7 @@ export default function Game() {
 
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline"><div>Mines Left: {SETTINGS.numMines - numFlagged}</div></Button>
+          <Button variant="outline"><div>Mines Left: {minesLeft}</div></Button>
         </PopoverTrigger>
         <PopoverContent className="w-100">
           <Card className="w-[350px]">
@@ -165,7 +163,7 @@ export default function Game() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline">Cancel</Button>
-              <Button onClick={() => reinit(4, 4, 6)}>Go</Button>
+              <Button onClick={handleReset}>Go</Button>
             </CardFooter>
           </Card>
         </PopoverContent>

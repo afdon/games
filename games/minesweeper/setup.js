@@ -123,12 +123,12 @@ export let SETTINGS = {
     return Object.values(neighbors);
   };
   
-  export const initialize = () => {
-    let board = createBoard(SETTINGS.numRows, SETTINGS.numCols);
+  export const initialize = (s) => {
+    let board = createBoard(s.rows, s.cols);
     let mineIndices = generateMineIndices(
-        SETTINGS.numMines,
-        SETTINGS.numRows,
-        SETTINGS.numCols
+        s.mines,
+        s.rows,
+        s.cols
     );
     board = fillMines(mineIndices, board);
     return board;

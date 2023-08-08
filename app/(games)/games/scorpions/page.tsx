@@ -1,20 +1,14 @@
-import getSongs from "@/actions/getSongs";
 import getGames from "@/actions/getGames";
-import DarkModeToggle from "@/components/unused/DarkModeToggle";
 import Header from "@/components/Header";
-import ListItem from "@/components/ListItem";
-// import PageContent from "./components/PageContent";
-import Minesweeper from "@/games/minesweeper/Minesweeper";
+// import Minesweeper from "@/games/minesweeper/Minesweeper";
+import Scorpions from "@/games/scorpions/Scorpions";
 
-//don't cache this page
 export const revalidate = 0;
 
 export default async function Home() {
   const games = await getGames();
 
-  const game = "Minesweeper"
-
-  // throw new Error('Test!')
+  const game = "Scorpions"
 
   return (
     <div className='
@@ -47,30 +41,17 @@ export default async function Home() {
           mt-4
           "
           >
-            {/* <ListItem
-              image="/images/gamewave.png"
-              name="Latest"
-              href="latest"
-            />
-            <ListItem
-              image="/images/liked.png"
-              name="Liked"
-              href="liked"
-            /> */}
           </div>
         </div>
       </Header>
       <div className="mt-2 mb-7 px-6">
         <div className="flex justify-between items-center">
           <h1 className="text-white text-2xl font-semibold">
-            {/* Minesweeper */}
+            {/* Scorpions */}
           </h1>
         </div>
-        {/* <div>
-          <PageContent game={games} />
-        </div> */}
         <div>
-          <Minesweeper />
+          <Scorpions />
         </div>
         <div>
         </div>

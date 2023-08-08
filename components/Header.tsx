@@ -9,7 +9,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { toast } from "react-hot-toast";
 
-import Button from "./Button";
+import Button from "@/components/Button";
 import DarkModeToggle  from "./unused/DarkModeToggle";
 
 import { useUser } from "@/hooks/useUser";
@@ -143,7 +143,7 @@ const Header: React.FC<HeaderProps> = ({
                         <div className="flex gap-x-4 items-center">
                             <Button
                                 onClick={handleLogout}
-                                className="bg-white px-6 py-2"
+                                className="bg-neutral-900 px-6 py-2 border-2 border-neutral-400 text-neutral-400 hover:text-neutral-200"
                             >
                                 Logout
                             </Button>

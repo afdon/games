@@ -18,12 +18,10 @@ import useSubscribeModal from '@/hooks/useSubscribeModal';
 import MediaItem from './MediaItem';
 
 interface LibraryProps {
-    games: Game[];
     songs: Song[];
 }
 
 const Library: React.FC<LibraryProps> = ({
-    games,
     songs
 }) => {
     const subscribeModal = useSubscribeModal();
@@ -32,7 +30,6 @@ const Library: React.FC<LibraryProps> = ({
     const { user, subscription } = useUser();
 
     const onPlay = useOnPlay(songs);
-    const onGamePlay = useOnGamePlay(games);
 
     const onClick = () => {
         if (!user) {

@@ -49,7 +49,7 @@ const GameItem: React.FC<GameItemProps> = ({
             >
                 <Image 
                 className="object-cover"
-                src={imagePath || '/images/liked.png'}
+                src={imagePath || '/images/astronaut-riding-rocket-cartoon.png'}
                 fill
                 alt="Image"
                 />

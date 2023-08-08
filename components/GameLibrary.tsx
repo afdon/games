@@ -93,7 +93,6 @@ const GameLibrary: React.FC<GameLibraryProps> = ({
                     />
                 ))}
             </div>
-            <Separator />
         </div>
     );
 }

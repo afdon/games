@@ -54,7 +54,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
             ">
                 <Image
                     fill
-                    src={imageURL || '/images/liked.png'}
+                    src={imageURL || '/images/astronaut-catching-moon.jpg'}
                     alt="Media Item"
                     className="object-cover"
                 />

@@ -109,7 +109,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 {/* <Box className='overflow-y-auto h-full'>
                     <Library songs={songs}/>
                 </Box> */}
-                <Box className='overflow-y-auto h-full'>
+                <Box className='overflow-y-auto h-[100vh]'>
                     <GameLibrary games={games}/>
                 </Box>
             </div>

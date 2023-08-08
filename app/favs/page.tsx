@@ -15,8 +15,9 @@ const LikedGames = async () => {
         className="
         bg-neutral-900
         rounded-lg
-        h-full
+        h-[100vh]
         w-full
+        min-height
         overflow-hidden
         overflow-y-auto
         "
@@ -43,7 +44,7 @@ const LikedGames = async () => {
                             fill
                             alt="Playlist"
                             className="object-cover"
-                            src="/images/liked.png"
+                            src="/images/astronault-riding-rocket.jpg"
                             />
                         </div>
                         <div className="

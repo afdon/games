@@ -1,6 +1,6 @@
 "use client"
 
-import useLoadImage from "@/hooks/useLoadImage";
+import useLoadImage from "@/hooks/useLoadGameImage";
 import usePlayer from "@/hooks/usePlayer";
 import useGamePlayer from "@/hooks/useGamePlayer";
 import { Game } from "@/types";

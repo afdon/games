@@ -11,7 +11,8 @@ import { Game } from '@/types';
 import useOnGamePlay from '@/hooks/useOnGamePlay';
 import useSubscribeModal from '@/hooks/useSubscribeModal';
 
-import GameMediaItem from './MediaItem';
+import GameMediaItem from './GameMediaItem';
+import MediaItem from './MediaItem';
 import { Separator } from './ui/separator';
 
 interface GameLibraryProps {

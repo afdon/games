@@ -10,9 +10,9 @@
   // }
 
 export let settings = {
-    numMines: 30,
-    numRows: 16,
-    numCols: 30,
+    mines: 30,
+    rows: 16,
+    cols: 30,
   };
   
   // export const cellSize = `calc(100vmin / ${Math.max(SETTINGS.numRows, SETTINGS.numCols)})`;

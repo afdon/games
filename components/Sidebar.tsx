@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             label: 'Home',
             active: 
             pathname !== '/search' && 
-            pathname !== '/game' &&
+            pathname !== '/favs' &&
             pathname !== '/games' &&
             pathname !== '/leaderboard',
             href: '/',
@@ -54,9 +54,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         },
         {
             icon: MdOutlineGames,
-            label: 'Game',
-            active: pathname === '/game',
-            href: '/game'
+            label: 'Favorites',
+            active: pathname === '/favs',
+            href: '/favs'
         },
         {
             icon: IoLogoGameControllerB,

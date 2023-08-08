@@ -10,17 +10,20 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import useAuthModal from '@/hooks/UseAuthModal';
 import { useUser } from '@/hooks/useUser';
 import useUploadModal from '@/hooks/useUploadModal';
-import { Song } from '@/types';
+import { Game, Song } from '@/types';
 import useOnPlay from '@/hooks/useOnPlay';
+import useOnGamePlay from '@/hooks/useOnGamePlay';
 import useSubscribeModal from '@/hooks/useSubscribeModal';
 
 import MediaItem from './MediaItem';
 
 interface LibraryProps {
+    games: Game[];
     songs: Song[];
 }
 
 const Library: React.FC<LibraryProps> = ({
+    games,
     songs
 }) => {
     const subscribeModal = useSubscribeModal();
@@ -29,16 +32,18 @@ const Library: React.FC<LibraryProps> = ({
     const { user, subscription } = useUser();
 
     const onPlay = useOnPlay(songs);
+    const onGamePlay = useOnGamePlay(games);
 
     const onClick = () => {
         if (!user) {
             return authModal.onOpen();
         }
 
-        if (!subscription) {
-            return subscribeModal.onOpen();
-        }
+        // if (!subscription) {
+        //     return subscribeModal.onOpen();
+        // }
 
+        // return uploadModal.onOpen();
         return uploadModal.onOpen();
     };
 

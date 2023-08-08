@@ -3,6 +3,8 @@
 import { useState } from "react";
 import {
   SETTINGS,
+  changeSettings,
+  reinit,
   findConnectedCellsToReveal,
   getDisplayValues,
   initialize,
@@ -32,8 +34,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Separator } from "@/components/ui/separator";
+import { useRouter } from "next/navigation.js";
 
 //////////
+
 
 let board = initialize();
 
@@ -103,8 +108,20 @@ export default function Game() {
     return total - revealedCells.length
   }
 
+  const router = useRouter();
+
+  // let m: number;
+  // let r: number;
+  // let c: number;
+
+
+
+  const reinitialize = (m: number, r:number, c: number) => {
+    display = reinit()
+  }
+
   return (
-    <>
+    <> 
       {gameState === "lost" && <p>You lost!</p>}
       {gameState === "won" && <p>You won!</p>}
 
@@ -112,23 +129,25 @@ export default function Game() {
 
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline">Settings</Button>
+          <Button variant="outline"><div>Mines Left: {SETTINGS.numMines - numFlagged}</div></Button>
         </PopoverTrigger>
         <PopoverContent className="w-100">
           <Card className="w-[350px]">
             <CardHeader>
-              <CardTitle>Settings</CardTitle>
-              <CardDescription>Change the settings for your game.</CardDescription>
+              {/* <CardTitle className="text-sm">Settings</CardTitle> */}
+              <CardDescription className="text-bold">Customize your game.</CardDescription>
             </CardHeader>
             <CardContent>
               <form>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="mines">Mines</Label>
-                    <Input id="mines" placeholder="Number of Mines" />
+                    {/* <Label htmlFor="mines">Mines</Label>
+                    <Separator /> */}
+                    <Input id="mines" placeholder="Number of Mines" className="w-[50px]"/>
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="difficulty">Level</Label>
+                    {/* <Label htmlFor="difficulty">Level</Label>
+                    <Separator /> */}
                     <Select>
                       <SelectTrigger id="difficulty">
                         <SelectValue placeholder="Difficulty" />
@@ -146,11 +165,13 @@ export default function Game() {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline">Cancel</Button>
-              <Button>Deploy</Button>
+              <Button onClick={() => reinit(4, 4, 6)}>Go</Button>
             </CardFooter>
           </Card>
         </PopoverContent>
       </Popover>
+      
+      <Button variant="outline" onClick={() => router.refresh()}>Reset</Button>
 
       <div className="p-4"></div>
 

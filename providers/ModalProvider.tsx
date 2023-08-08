@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import AuthModal from "@/components/AuthModal";
 import UploadModal from "@/components/UploadModal";
+import UploadGameModal from "@/components/UploadGameModal";
 import SubscribeModal from "@/components/SubscribeModal";
 import { ProductWithPrice } from "@/types";
 
@@ -30,6 +31,7 @@ const ModalProvider: React.FC<ModalProviderProps> = ({
         <>
             <AuthModal />
             <UploadModal />
+            <UploadGameModal />
             <SubscribeModal products={products} />
 
         </>

@@ -1,5 +1,9 @@
+  
+  let board = [];
+  let mineIndices = [];
 
-export const SETTINGS = {
+  
+export let SETTINGS = {
     numMines: 25,
     numRows: 16,
     numCols: 30,
@@ -9,15 +13,33 @@ export const SETTINGS = {
   export const cellSize = `${90 / (Math.max(SETTINGS.numRows, SETTINGS.numCols))})vmin`;
 
 
+  export const changeSettings = (m, r, c) => {
+    
+    let settings = {
+      numMines: m,
+      numRows: r,
+      numCols: c,
+    }
+
+    SETTINGS = settings
+
+    return SETTINGS;
+  };
+
+  export const reinit = (m, r, c) => {
+    changeSettings(m, r, c)
+    board = initialize()
+    display = getDisplayValues(b)
+    return display;
+  }
+
+
 // export const start = {
 //   initialize: initialize,
 //   createBoard: createBoard,
 //   generateMineIndices: generateMineIndices,
 //   fillMines: fillMines,
 // }
-  
-  let board = [];
-  let mineIndices = [];
   
   export const createBoard = (rows, cols) => {
     for (let i = 0; i < rows * cols; i++) {

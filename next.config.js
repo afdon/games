@@ -2,9 +2,10 @@
 const nextConfig = {
     images: {
         domains: [
-            "mwcjoxkbbputgmsfygav.supabase.co" // supabase reference ID
+            "fyycntkrvxumyorlztch.supabase.co", // supabase reference ID
         ]
     }
 }
 
 module.exports = nextConfig
+

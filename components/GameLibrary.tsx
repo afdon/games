@@ -11,7 +11,6 @@ import { Game } from '@/types';
 import useOnGamePlay from '@/hooks/useOnGamePlay';
 import useSubscribeModal from '@/hooks/useSubscribeModal';
 
-import MediaItem from './MediaItem';
 import GameMediaItem from './MediaItem';
 
 interface GameLibraryProps {
@@ -28,19 +27,15 @@ const GameLibrary: React.FC<GameLibraryProps> = ({
 
     const onGamePlay = useOnGamePlay(games);
 
-    const onClick = {
-        // todo
-        // expand this
-    }
 
-    const onClick2 = () => {
+    const onClick = () => {
         if (!user) {
             return authModal.onOpen();
         }
 
-        if (!subscription) {
-            return subscribeModal.onOpen();
-        }
+        // if (!subscription) {
+        //     return subscribeModal.onOpen();
+        // }
 
         return uploadModal.onOpen();
     };
@@ -69,9 +64,9 @@ const GameLibrary: React.FC<GameLibraryProps> = ({
                     </p>
                 </div>
                 <AiOutlinePlus
-                // onClick={onClick}
-                size={20}
-                className='
+                    onClick={onClick}
+                    size={20}
+                    className='
                 text-neutral-400
                 cursor-pointer
                 hover:text-white
@@ -80,7 +75,7 @@ const GameLibrary: React.FC<GameLibraryProps> = ({
                 />
             </div>
             <div
-            className='
+                className='
             flex
             flex-col
             gap-y-2
@@ -89,9 +84,9 @@ const GameLibrary: React.FC<GameLibraryProps> = ({
             '>
                 {games.map((item) => (
                     <GameMediaItem
-                    onClick={(id: string) => onGamePlay(id)}
-                    key={item.id}
-                    data={item}
+                        onClick={(id: string) => onGamePlay(id)}
+                        key={item.id}
+                        data={item}
                     />
                 ))}
             </div>

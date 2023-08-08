@@ -55,7 +55,7 @@ const LikedGames = async () => {
                         ">
                             <p className="hidden md:block font-sem
                             text-sm">
-                                Playlist
+                                {/* Playlist */}
                             </p>
                             <h1 className="
                             text-white
@@ -64,7 +64,7 @@ const LikedGames = async () => {
                             lg:text-6xl
                             font-bold
                             ">
-                                Liked Games
+                                Favorite Games
                             </h1>
                         </div>
                     </div>

@@ -55,7 +55,7 @@ const UploadGameModal = () => {
             
             const uniqueID = uniqid();
             
-            // upload game
+            // upload image
             const {
                 data: imageData,
                 error: imageError,
@@ -78,15 +78,15 @@ const UploadGameModal = () => {
                 error: gameError,
             } = await supabaseClient
             .storage
-            .from('images')
-            .upload(`image-${values.title}-${uniqueID}`, gameFile, {
+            .from('games')
+            .upload(`game-${values.title}-${uniqueID}`, gameFile, {
                 cacheControl: '3600',
                 upsert: false
             });
 
             if (gameError) {
                 setIsLoading(false);
-                return toast.error('Failed to upload image.');
+                return toast.error('Failed to upload game.');
             }
 
             const {
@@ -98,7 +98,7 @@ const UploadGameModal = () => {
                 title: values.title,
                 author: values.author,
                 image_path: imageData.path,
-                gameImage_path: gameData.path
+                game_path: gameData.path
             });
 
             if (supabaseError) {
@@ -149,7 +149,7 @@ const UploadGameModal = () => {
                     id="game"
                     type="file"
                     disabled={isLoading}
-                    accept=".mp4"
+                    accept="image/*, audio/*, video/*"
                     {...register('game', { required: true })}
                 />  
                 </div>

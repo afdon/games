@@ -17,7 +17,7 @@ const GameMediaItem: React.FC<GameMediaItemProps> = ({
     onClick
 }) => {
     const gamePlayer = useGamePlayer();
-    const imageURL = useLoadGameImage(data);
+    const imageURL = useLoadImage(data);
 
     const handleClick = () => {
         if (onClick) {

@@ -9,7 +9,6 @@ import {
   getDisplayValues,
   initialize,
 } from "./setup.js";
-// import ControlPanel from "./ControlPanel.jsx";
 
 import {
   Popover,

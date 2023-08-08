@@ -18,18 +18,18 @@ import useSubscribeModal from '@/hooks/useSubscribeModal';
 import MediaItem from './MediaItem';
 
 interface LibraryProps {
-    songs: Song[];
+    games: Game[];
 }
 
 const Library: React.FC<LibraryProps> = ({
-    songs
+    games
 }) => {
     const subscribeModal = useSubscribeModal();
     const authModal = useAuthModal();
     const uploadModal = useUploadModal();
     const { user, subscription } = useUser();
 
-    const onPlay = useOnPlay(songs);
+    const onGamePlay = useOnGamePlay(games);
 
     const onClick = () => {
         if (!user) {
@@ -86,9 +86,9 @@ const Library: React.FC<LibraryProps> = ({
             mt-4
             px-3
             '>
-                {songs.map((item) => (
+                {games.map((item) => (
                     <MediaItem
-                    onClick={(id: string) => onPlay(id)}
+                    onClick={(id: string) => onGamePlay(id)}
                     key={item.id}
                     data={item}
                     />

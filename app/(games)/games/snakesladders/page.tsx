@@ -26,6 +26,7 @@ export default async function Home() {
           text-3xl
           font-semibold
           mt-[-60px]
+          text-center
           ">
             {game}
           </h1>
@@ -50,7 +51,7 @@ export default async function Home() {
           </h1>
         </div>
         <div>
-          <SnakesLadders />
+          {/* <SnakesLadders /> */}
         </div>
         <div>
         </div>

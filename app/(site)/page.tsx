@@ -17,18 +17,17 @@ export default async function Home() {
 
   return (
 
-    <div>home</div>
+    <div className='
+    bg-black
+    rounded-lg
+    h-full
+    w-full
+    overflow-hidden
+    overflow-y-auto
+    p-4
+    '>
 
-    // <div className='
-    // bg-black
-    // rounded-lg
-    // h-full
-    // w-full
-    // overflow-hidden
-    // overflow-y-auto
-    // p-4
-    // '>
-    //   <Header>
+    //    <Header>
     //     <div className="mb-2 mt-4 p-2">
     //       <h1 className="
     //       text-white
@@ -79,6 +78,8 @@ export default async function Home() {
     //     <div>
     //     </div>
     //   </div>
-    // </div>
+
+
+    </div>
   );
 }

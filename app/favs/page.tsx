@@ -40,12 +40,12 @@ const LikedGames = async () => {
                         lg:h-44
                         lg:w-44
                         ">
-                            <Image 
+                            {/* <Image 
                             fill
                             alt="Playlist"
                             className="object-cover"
                             src="/images/astronaut-riding-rocket.jpg"
-                            />
+                            /> */}
                         </div>
                         <div className="
                         flex

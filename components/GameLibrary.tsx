@@ -1,29 +1,24 @@
 'use client';
 
 import { IoLogoGameControllerB } from 'react-icons/io';
-// import { TbPlaylist } from 'react-icons/tb';
 
 import { AiOutlinePlus } from 'react-icons/ai';
 
 import useAuthModal from '@/hooks/UseAuthModal';
 import { useUser } from '@/hooks/useUser';
 import useUploadModal from '@/hooks/useUploadModal';
-// import { Song } from '@/types';
 import { Game } from '@/types';
-// import useOnPlay from '@/hooks/useOnPlay';
 import useOnGamePlay from '@/hooks/useOnGamePlay';
 import useSubscribeModal from '@/hooks/useSubscribeModal';
 
 import MediaItem from './MediaItem';
 import GameMediaItem from './MediaItem';
 
-interface LibraryProps {
-    // songs: Song[];
+interface GameLibraryProps {
     games: Game[];
 }
 
-const Library: React.FC<LibraryProps> = ({
-    // songs,
+const GameLibrary: React.FC<GameLibraryProps> = ({
     games
 }) => {
     const subscribeModal = useSubscribeModal();
@@ -104,4 +99,4 @@ const Library: React.FC<LibraryProps> = ({
     );
 }
 
-export default Library;
+export default GameLibrary;

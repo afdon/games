@@ -21,7 +21,7 @@ export const metadata = {
   description: 'Play',
 };
 
-export const revalidate = 0 // don't cache
+export const revalidate = 0 // don't ever cache
 
 export default async function RootLayout({
   children,

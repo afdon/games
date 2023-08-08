@@ -1,8 +1,8 @@
 import getSongs from "@/actions/getSongs";
 import getGames from "@/actions/getGames";
-import DarkModeToggle from "@/components/unused/DarkModeToggle";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
+import GameListItem from "@/components/GameListItem";
 // import PageContent from "./components/PageContent";
 import Minesweeper from "@/games/minesweeper/Minesweeper";
 
@@ -10,11 +10,11 @@ import Minesweeper from "@/games/minesweeper/Minesweeper";
 export const revalidate = 0;
 
 export default async function Home() {
+  
+  const songs = await getSongs();
   const games = await getGames();
 
   const game = "Minesweeper"
-
-  // throw new Error('Test!')
 
   return (
     <div className='

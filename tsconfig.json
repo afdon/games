@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "games/minesweeper/ControlPanel.jsx", "games/scorpions/Scorpions.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "games/minesweeper/ControlPanel.jsx", "games/scorpions/Scorpions.jsx", "games/minesweeper/Minesweeper.tsx"],
   "exclude": ["node_modules"]
 }

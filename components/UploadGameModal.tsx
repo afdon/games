@@ -54,23 +54,6 @@ const UploadGameModal = () => {
             }
             
             const uniqueID = uniqid();
-
-            // upload game
-            const {
-                data: gameData,
-                error: gameError,
-            } = await supabaseClient
-            .storage
-            .from('games')
-            .upload(`game-${values.title}-${uniqueID}`, gameFile, {
-                cacheControl: '3600',
-                upsert: false
-            });
-
-            if (gameError) {
-                setIsLoading(false);
-                return toast.error('Failed to upload game.');
-            }
             
             // upload game
             const {
@@ -89,6 +72,23 @@ const UploadGameModal = () => {
                 return toast.error('Failed to upload image.');
             }
 
+            // upload game
+            const {
+                data: gameData,
+                error: gameError,
+            } = await supabaseClient
+            .storage
+            .from('images')
+            .upload(`image-${values.title}-${uniqueID}`, gameFile, {
+                cacheControl: '3600',
+                upsert: false
+            });
+
+            if (gameError) {
+                setIsLoading(false);
+                return toast.error('Failed to upload image.');
+            }
+
             const {
                 error: supabaseError
             } = await supabaseClient
@@ -98,7 +98,7 @@ const UploadGameModal = () => {
                 title: values.title,
                 author: values.author,
                 image_path: imageData.path,
-                game_path: gameData.path
+                gameImage_path: gameData.path
             });
 
             if (supabaseError) {
@@ -136,10 +136,10 @@ const UploadGameModal = () => {
                     placeholder="Game title"
                 />
                 <Input
-                    id="author"
+                    id="creator"
                     disabled={isLoading}
                     {...register('author', { required: true })}
-                    placeholder="Game author"
+                    placeholder="Game creator"
                 />
                 <div>
                     <div className="pb-1">

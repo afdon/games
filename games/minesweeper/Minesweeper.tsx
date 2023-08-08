@@ -8,7 +8,6 @@ import {
   initialize,
 } from "./setup.js";
 import "./Minesweeper.css";
-import ControlPanel from "./ControlPanel.jsx";
 
 import {
   Popover,
@@ -113,32 +112,32 @@ export default function Game() {
 
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline">Open popover</Button>
+          <Button variant="outline">Settings</Button>
         </PopoverTrigger>
         <PopoverContent className="w-100">
           <Card className="w-[350px]">
             <CardHeader>
-              <CardTitle>Create project</CardTitle>
-              <CardDescription>Deploy your new project in one-click.</CardDescription>
+              <CardTitle>Settings</CardTitle>
+              <CardDescription>Change the settings for your game.</CardDescription>
             </CardHeader>
             <CardContent>
               <form>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Name of your project" />
+                    <Label htmlFor="mines">Mines</Label>
+                    <Input id="mines" placeholder="Number of Mines" />
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="framework">Framework</Label>
+                    <Label htmlFor="difficulty">Level</Label>
                     <Select>
-                      <SelectTrigger id="framework">
-                        <SelectValue placeholder="Select" />
+                      <SelectTrigger id="difficulty">
+                        <SelectValue placeholder="Difficulty" />
                       </SelectTrigger>
                       <SelectContent position="popper">
-                        <SelectItem value="next">Next.js</SelectItem>
-                        <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                        <SelectItem value="astro">Astro</SelectItem>
-                        <SelectItem value="nuxt">Nuxt.js</SelectItem>
+                        <SelectItem value="easy">Easy</SelectItem>
+                        <SelectItem value="standard">Standard</SelectItem>
+                        <SelectItem value="medium">Medium</SelectItem>
+                        <SelectItem value="hard">Hard</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

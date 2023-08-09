@@ -44,6 +44,8 @@ export default function Game() {
 
   const [ settings, setSettings ] = useState({ mines: 25, rows: 16, cols: 30 });
 
+  const minesLeft = settings.mines - numFlagged
+
   const [gameState, setGameState] = useState("playing");
 
   const [flagged, setFlagged] = useState(
@@ -101,7 +103,6 @@ export default function Game() {
   const longestSide = Math.max(settings.rows, settings.cols);
   const divided = 100 / longestSide;
 
-  const minesLeft = settings.mines - numFlagged
 
   const getProgress = () => {
     return total - revealedCells.length

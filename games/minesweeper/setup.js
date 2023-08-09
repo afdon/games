@@ -2,13 +2,6 @@
   let board = [];
   let mineIndices = [];
 
-  
-  // let settings = {
-  //   numMines: m,
-  //   rows: r,
-  //   cols: c,
-  // }
-
 export let settings = {
     mines: 30,
     rows: 16,
@@ -21,9 +14,6 @@ export let settings = {
 
   export const changeSettings = (m, r, c) => {
     
-
-    settings = settings
-
     return settings;
   };
 

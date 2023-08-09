@@ -1,17 +1,22 @@
 "use client"
 
-import useGetSongById from "@/hooks/useGetSongById";
-import useLoadSongUrl from "@/hooks/useLoadSongUrl";
 import usePlayer from "@/hooks/usePlayer";
+import useLoadSongUrl from "@/hooks/useLoadSongUrl";
+import useGetSongById from "@/hooks/useGetSongById";
 import PlayerContent from "./PlayerContent";
 
-const Player = () => {
-    const player = usePlayer();
-    const { song } = useGetSongById(player.activeId);
+import useLoadGameUrl from "@/hooks/useLoadGameUrl";
+import useGetGameById from "@/hooks/useGetGameById";
+import useGamePlayer from "@/hooks/useGamePlayer";
+import GamePlayerContent from "./GamePlayerContent";
 
-    const songUrl = useLoadSongUrl(song!);
+const GamePlayer = () => {
+    const gamePlayer = useGamePlayer();
+    const { game } = useGetGameById(gamePlayer.activeId);
 
-    if (!song || !songUrl || !player.activeId) {
+    const gameUrl = useLoadGameUrl(game!);
+
+    if (!game || !gameUrl || !gamePlayer.activeId) {
         return null;
     }
     
@@ -23,17 +28,17 @@ const Player = () => {
         bg-black
         w-full
         py-2
-        h-[80px]
+        h-[40vh]
         px-4
         "
         >
-            <PlayerContent
-                key={songUrl}
-                song={song}
-                songUrl={songUrl}
+            <GamePlayerContent
+                key={gameUrl}
+                game={game}
+                gameUrl={gameUrl}
             />
         </div>
     );
 }
 
-export default Player;
+export default GamePlayer;
